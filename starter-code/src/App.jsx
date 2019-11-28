@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import data from './data.json'
+import "./App.css" 
+import ProductTable from './components/ProductTable.jsx';
 
-export default class App extends Component {
+
+class App extends Component {
+
+  state = {
+    products: data.data
+  }
+
   render() {
+    console.log(this.state.products);
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <h1>IronStore</h1>
+        <ProductTable  products={this.state.products}/>
+        
       </div>
     );
   }
 }
+
+export default App;
